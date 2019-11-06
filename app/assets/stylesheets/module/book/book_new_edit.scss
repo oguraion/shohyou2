@@ -40,12 +40,12 @@
           }
         }
         .label-require::after {
-          content: '必須';
+          content: '*';
           @include require;
-          background-color: $red;
+          color: $red;
         }
         .label-any::after {
-          content: '任意';
+          
           @include require;
           background-color: $gray;
         }
