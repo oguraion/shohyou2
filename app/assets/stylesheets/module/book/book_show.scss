@@ -1,0 +1,310 @@
+.book_show_container {
+  width: 100%;
+  padding: 40px 0;
+
+  .main-container {
+    width: 1000px;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin: 0 auto;
+    .book-status {
+      .book-title {
+        width: 100%;
+        h1 {
+          text-align: center;
+          margin: 10px 50px;
+          font-size: 25px;
+        }
+      }
+      .second-content {
+        margin: 0 30px;
+        display: flex;
+        justify-content: space-between;
+        .book-content {
+          min-height: 320px;
+          background-color: $white;
+          margin: 20px 0 30px 0;
+          display: flex;
+          @include boder-enclosure;
+          &__image {
+            padding: 30px;
+            img {
+              height: 250px;
+              min-width: 180px;
+              max-width: 220px;
+              object-fit: cover;
+              @include boder-enclosure;
+            }
+          }
+          &__details {
+            padding: 30px 30px 30px 0;
+            width: 350px;
+            .heading {
+              display: flex;
+              h1 {
+                font-size: 18px;
+                padding: 15px;
+              }
+              .element {
+                @include element;
+                line-height: 12px;
+                color: $red;
+                text-decoration: none;
+                margin: 15px 10px 15px 80px;
+                &:hover {
+                  background-color: $red;
+                  color: $white;
+                }
+              }
+            }
+            .list {
+              font-size: 16px;
+              padding: 10px;
+              margin-right: 20px;
+              display: flex;
+              justify-content: space-between;
+              &__main {
+                width: 40%;
+              }
+              &__info {
+                display: flex;
+                width: 60%;
+                justify-content: space-between;
+                .unit {
+                  font-size: 12px;
+                }
+              }
+            }
+            .not-flex {
+              @extend .list;
+              display: block;
+              margin: 0;
+              &__info {
+                padding-top: 10px;
+                width: 100%;
+                line-height: 20px;
+
+              }
+            }
+          }
+        }
+        .registration {
+          background-color: $white;
+          @include boder-enclosure;
+          margin: 20px 0;
+          width: 265px;
+          max-height: 320px;
+          &__title {
+            margin: 40px 20px 0;
+            &__mine {
+              text-align: center;
+              margin-bottom: 15px; 
+            }
+          }
+          .list-button {
+            margin: 10px;
+            width: 240px;
+            border-radius: 5px;
+            border: 1px solid $gray;
+            background-color: $main-background;
+            .link {
+              display: flex;
+              padding: 10px 20px;
+              text-decoration: none;
+              .fas {
+                color: $black;
+                margin: 0 6px 0 3px;
+              }  
+              p {
+                font-size: 15px;
+                text-align: center;
+                color: $black;
+              }
+            }
+            .link-first:hover {
+              background-color: $green;
+              color: $white;
+            }
+          }
+          .edit_list, .new_list {
+            .radio-label {
+              cursor: pointer;
+              @extend .list-button;
+              padding: 10px 20px;
+              font-size: 15px;
+              color: $black;
+              background-color: $main-background;
+              .radio {
+                width: 240px;
+              }
+              label {
+                cursor: pointer;
+              }
+            }
+            input[type=radio] {
+              display: none;
+            }
+          }
+          .list-readed:hover {
+            background-color: $green;
+          } 
+          
+          .radio-label:hover {
+            background-color: $yellow;
+            opacity: 0.8;
+          }
+          .link-last {
+            padding: 10px 20px;
+            background-color: $red;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+    .book-review {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
+      &__reviewer {
+        width: 220px;
+        height: 100%;
+        // min-height: 54px;
+        margin: 20px 0;
+        border: 1px solid $gray;
+        border-radius: 5px;
+        background-color: $white;
+        .lists {
+          border-bottom: #aaa solid 1px;
+          .list {
+            padding: 10px;
+            font-size: 18px;
+            .element {
+              @include element;
+              margin: 0;
+            }
+          }
+        }
+        .lists-none {
+          p {
+            padding: 20px 10px;
+          }
+          .decoration-none {
+            text-decoration-line: none;
+            color: $black;
+          }
+          .list-user {
+            display: flex;
+            padding: 5px 1px 1px;
+            &__image {
+              margin-left: 5px;
+              height: 30px;
+              width: 30px;
+            }
+            &__container {
+
+              &__listname {
+                
+              }
+              &__nickname {
+                padding: 10px;
+                width: 180px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+            &:hover {
+              opacity: 0.6;
+              color: $yellow;
+            }
+          }
+        }
+      }
+      &__container {
+        height: 100%;
+        width: 660px;
+        .reviews {
+          margin: 20px 0;
+          background-color: #fff;
+          border: #aaa solid 1px;
+          border-radius: 5px;
+          &__title {
+            display: flex;
+            border-bottom: #aaa solid 1px;
+            .list {
+              padding: 10px;
+              font-size: 18px;
+              .element {
+                @include element;
+                margin: 0;
+              }
+            }
+          }
+          &__list {
+            display: flex;
+            border-bottom: #aaa solid 1px;
+            &__head {
+              img {
+                padding: 15px;
+                max-height: 140px;
+                max-width: 140px;
+                object-fit: cover;
+                &:hover {
+                  opacity: 0.6;
+                }
+              }
+            }
+            &__body {
+              .head {
+                display: flex;
+                padding: 15px;
+                line-height: 20px;
+                font-size: 18px;
+                justify-content: space-between;
+                .flex-content {
+                  display: flex;
+                  font-size: 12px;
+                  .destroy {
+                    font-size: 15px;
+                    margin-left: 30px;
+                    .fas {
+                      color: $gray;
+                      &:hover {
+                        color: $red;
+                      }
+                    }
+                  }
+                }
+              }
+              .comment {
+                line-height: 20px;
+                min-height: 50px;
+                min-width: 518px;
+                padding: 0 20px;
+                white-space: pre-wrap;
+              }
+              .time {
+                width: 500px;
+                text-align: right;
+                padding: 15px 25px;
+              }
+            }
+            &__time {
+              display: block;
+            }
+          }
+          &__list:last-child {
+            border-bottom: 0px;
+          }
+          &__none {
+            p {
+              padding: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

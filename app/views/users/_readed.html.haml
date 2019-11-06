@@ -1,0 +1,130 @@
+.book-review-list
+  = render 'mydata'
+  
+  .book-readed
+    .book-readed__title
+      %p.list
+        読み終えた本リスト
+      .flex
+        .element
+          = @readed.count
+        - if @readed.present?
+          = link_to review_mypage_index_path, class: "all" do
+            %p 全て見る 
+            %i.fas.fa-chevron-right
+            %i.fas.fa-chevron-right
+
+    - if @readed.present?
+      .book-readed__list
+        - @readed.first(4).each do |status|
+          .book-readed__list__item
+            .book-readed__list__item__image
+              = link_to show_books_path(status.book.id) do
+                - if status.book.image.present?
+                  = image_tag "#{status.book.image}"
+                - else
+                  = image_tag "book-default.png"
+            .book-readed__list__item__description
+              %p.book-title
+                = status.book.name
+              %p.readed-day
+                = "登録日：#{dayTime(status.created_at)}"
+    - else
+      .book-readed__list--zero
+        現在、登録している本はありません。
+
+  .book-readed
+    .book-readed__title
+      %p.list
+        読んでいる本リスト
+      .flex
+        .element
+          = @status_first.count
+        - if @status_first.present?
+          = link_to lists_all_path(0), class: "all" do
+            %p 全て見る 
+            %i.fas.fa-chevron-right
+            %i.fas.fa-chevron-right
+              
+    - if @status_first.present?
+      .book-readed__list
+        - @status_first.first(4).each do |status|
+          .book-readed__list__item
+            .book-readed__list__item__image
+              = link_to show_books_path(status.book.id) do
+                - if status.book.image.present?
+                  = image_tag "#{status.book.image}"
+                - else
+                  = image_tag "book-default.png"
+            .book-readed__list__item__description
+              %p.book-title
+                = status.book.name
+              %p.readed-day
+                = "登録日：#{dayTime(status.created_at)}"
+    - else
+      .book-readed__list--zero
+        現在、登録している本はありません。
+
+  .book-readed
+    .book-readed__title
+      %p.list
+        積んでいる本リスト
+      .flex
+        .element
+          = @status_second.count
+        - if @status_second.present?
+          = link_to lists_all_path(1), class: "all" do
+            %p 全て見る 
+            %i.fas.fa-chevron-right
+            %i.fas.fa-chevron-right
+
+    - if @status_second.present?
+      .book-readed__list
+        - @status_second.first(4).each do |status|
+          .book-readed__list__item
+            .book-readed__list__item__image
+              = link_to show_books_path(status.book.id) do
+                - if status.book.image.present?
+                  = image_tag "#{status.book.image}"
+                - else
+                  = image_tag "book-default.png"
+            .book-readed__list__item__description
+              %p.book-title
+                = status.book.name
+              %p.readed-day
+                = "登録日：#{dayTime(status.created_at)}"  
+    - else
+      .book-readed__list--zero
+        現在、登録している本はありません。
+
+  .book-readed
+    .book-readed__title
+      %p.list
+        読みたい本リスト
+      .flex
+        .element
+          = @status_third.count
+        - if @status_third.present?
+          = link_to lists_all_path(2), class: "all" do
+            %p 全て見る 
+            %i.fas.fa-chevron-right
+            %i.fas.fa-chevron-right
+        
+    - if @status_third.present?
+      .book-readed__list
+        - @status_third.first(4).each do |status|
+          .book-readed__list__item
+            .book-readed__list__item__image
+              = link_to show_books_path(status.book.id) do
+                - if status.book.image.present?
+                  = image_tag "#{status.book.image}"
+                - else
+                  = image_tag "book-default.png"
+            .book-readed__list__item__description
+              %p.book-title
+                = status.book.name
+              %p.readed-day
+                = "登録日：#{dayTime(status.created_at)}"
+    - else
+      .book-readed__list--zero
+        現在、登録している本はありません。

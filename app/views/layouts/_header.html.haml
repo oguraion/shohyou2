@@ -1,0 +1,41 @@
+%header.header
+  .header__wrapper
+    .header__wrapper__top
+      .title
+      .menu
+        - if user_signed_in? && current_user
+          %li.menu__logout
+            = link_to "ログアウト",  destroy_user_session_path, method: :delete
+
+        - else
+          %li.menu__login
+            = link_to "ログイン", new_user_session_path
+          %li.menu__new
+            = link_to "新規会員登録", new_user_registration_path
+
+    = render "layouts/flash"
+
+    .header__wrapper__bottom
+      .title
+        = link_to root_path do
+          %i.fas.fa-book
+          技術書
+          %span reviews
+      .flex
+        .left
+          = link_to books_path, class: "search" do
+            %i.fas.fa-search
+            %p 本を探す
+
+          = link_to users_path, class: "search", action: :show do
+            %i.fas.fa-crown
+            %p ランキング
+
+        .menu
+          - if user_signed_in? && current_user
+            = link_to mypage_index_path, class: "menu__mypage" do
+              %span
+                = image_tag "#{current_user.image}"
+              .menu__mypage__item
+                %p.name #{current_user.nickname}さん
+                %p.span のマイページ

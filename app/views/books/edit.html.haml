@@ -1,0 +1,42 @@
+.book_new_edit
+
+  .title
+    %p 本の詳細を変更する
+
+  .book_new_edit__form
+    .book-new
+      = form_with(model: @book, local: true) do |form|
+        - if @book.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@book.errors.count, "つのエラーにより登録できませんでした")
+              
+            %ul
+              - @book.errors.full_messages.each do |message|
+                %li
+                  = message
+
+        .field
+          = form.label :本の名称, class: "label-require"
+          %br
+          = form.text_field :name, class: "form-input"
+        .field
+          = form.label :著者, class: "label-require"
+          %br
+          = form.text_field :author, class: "form-input"
+        .field
+          = form.label :ページ数, class: "label"
+          %br
+          = form.text_field :page, class: "form-input"
+        .field
+          = form.label :本の説明, class: "label"
+          %br
+          = form.text_area :discription, class: "form-area"
+        .field
+          = form.label :本の表紙画像, class: "label"
+          %br
+          = form.file_field :image, class: 'hidden'
+
+        .actions
+          = form.submit
+

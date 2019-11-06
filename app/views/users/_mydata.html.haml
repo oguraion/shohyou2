@@ -1,0 +1,44 @@
+.data
+  .data__left
+    .data__left__title 読書データ
+    .data__left__list
+      .title 読み終えた本：
+      .status 
+        = @readed.count
+      .unit 冊
+    .data__left__list
+      .title 読んでいる本：
+      .status
+        = @status_first.count
+      .unit 冊
+    .data__left__list
+      .title 積んでいる本：
+      .status
+        = @status_second.count
+      .unit 冊
+    .data__left__list
+      .title 読みたい本：
+      .status
+        = @status_third.count
+      .unit 冊
+  .data__right
+    .data__right__title 詳細データ
+    .data__right__list
+      .title 登録日：
+      .status.add_ration
+        = dayTime(current_user.created_at)
+    .data__right__list
+      .title 読んだページ数：
+      .status
+        = @page
+      .unit ページ
+    .data__right__list
+      .title 平均(ページ/1日)：
+      .status
+        = @count_page
+      .unit ページ
+    .data__right__list
+      .title 今月読んだ本：
+      .status
+        = @this_month_count
+      .unit 冊

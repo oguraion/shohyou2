@@ -1,0 +1,14 @@
+= form_for(@list_new, url: show_books_lists_path) do |form|
+
+  .radio-label
+    = form.radio_button(:status, 0, class: "radio")
+    %i.fas.fa-book-open
+    = form.label :読んでいる本に登録する
+  .radio-label
+    = form.radio_button(:status, 1, class: "radio")
+    %i.fas.fa-book-open
+    = form.label :積んでいる本に登録する
+  .radio-label
+    = form.radio_button(:status, 2, class: "radio")
+    %i.fas.fa-book-open
+    = form.label :読みたい本に登録する

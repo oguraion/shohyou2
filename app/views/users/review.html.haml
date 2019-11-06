@@ -1,0 +1,13 @@
+.mypage_container
+  .main-container
+    .left-content
+      = render "mypage"
+      
+    .right-content
+      .book-review-list
+        .book-readed.cancel
+          .book-readed__title.cancel__title
+            %p.list
+              読み終えた本リスト
+          .book-readed__list
+            = render partial: "shared/list_all", collection: @readed, as: "status"

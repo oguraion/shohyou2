@@ -1,0 +1,5 @@
+require './db/seeds/area.rb'
+require './db/seeds/user.rb'
+require './db/seeds/book.rb'
+require './db/seeds/list.rb'
+require './db/seeds/review.rb'

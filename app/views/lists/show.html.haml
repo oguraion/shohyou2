@@ -1,0 +1,19 @@
+.mypage_container
+  .main-container
+    .left-content
+      = render "users/mypage"
+      
+    .right-content
+      .book-review-list
+        .book-readed.cancel
+          .book-readed__title.cancel__title
+            %p.list
+              - if @lists_number == "0"
+                読んでいる本リスト
+              - elsif @lists_number == "1"
+                積んでいる本リスト
+              - elsif @lists_number == "2"
+                読みたい本リスト
+
+          .book-reade__list
+            = render partial: "shared/list_all", collection: @list, as: "status"

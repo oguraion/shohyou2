@@ -1,0 +1,287 @@
+.mypage_container {
+  width: 100%;
+  padding: 40px 0;
+  
+  .main-container {
+    width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .left-content {
+      width: 350px;
+      height: 100%;
+      border: $gray solid 1px;
+      border-radius: 5px;
+
+      &__icon {
+        padding: 32px 32px 16px;
+        text-align: center;
+        background-color: $white;
+        position: relative;
+        .form-mask {
+          display: block;
+          margin: 0 auto;
+          width: 200px;
+          height:200px;
+          img {
+            height: 200px;
+            width: 200px;
+          }
+        }
+        .hidden {
+          position: absolute;
+          top: 32px;
+          left: 74px;
+          display: block;
+          width: 200px;
+          height:200px;
+          opacity: 0;
+          margin: 0 auto;
+        }
+        p {
+          padding: 15px 0 2px;
+          font-size: 10px;
+        }
+      }
+      &__profile {
+        .list {
+          background-color: $white;
+          border-top: $gray solid 1px;
+          color: $gray;
+          display: flex;
+          height: 40px;
+          &__title {
+            padding: 10px 0 10px 10px;
+            width: 35%;
+            text-align: left;
+          }
+          &__item {
+            padding: 5px 10px 5px 0;
+            width: 65%;
+            color: $black;
+            .input-form {
+              height: 30px;
+              width: 100%;
+            }
+            .input:focus, select:focus, .input-form:focus, textarea:focus {
+              @include input-focus;
+            }
+            .textarea-default {
+              min-height: 100px;
+              width: 100%;
+              padding: 5px 0 0 5px;
+            }
+          }
+          &__radio {
+            @extend .list__item;
+            display: flex;
+            .radio {
+              margin: 8px 18px 0 0;
+            }
+          }
+          .non-flex {
+            display: block;
+          }
+        }
+        .select-width {
+          height: 100%;
+          .new-line {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-align: left;
+          }
+        }
+        .pulldown {
+          &__title {
+            padding: 10px 0 10px 10px;
+            width: 35%;
+            text-align: left;
+          }
+          &__item {
+            color: $black;
+            padding-top: 5px;
+            width: 65%;
+            .select-wrap {
+              select {
+                height: 30px;
+                border: 1px solid $gray;
+                &:focus {
+                  @include input-focus;
+                }
+              }
+              #user_area {
+                width: 180px;
+              }
+            }
+          }
+        }
+        .title {
+          @extend .list;
+          color: $black;
+          background-color: $gray;
+          padding: 10px;
+        }
+        .height-adjustment {
+          height: 100%;
+          white-space: pre-wrap;
+        }
+      }
+      .update-btn {
+        border-top: $gray solid 1px;
+        .submit {
+          text-align: center;
+          padding: 7px 0;
+          line-height: 1.5;
+          input {
+            padding: 5px;
+            font-size: 10px;
+            width: 100px;
+            @include boder-enclosure;
+            &:focus {
+              @include input-focus;
+            }
+            &:hover {
+              background-color: $red;
+            }
+          }
+        }
+      }
+    }
+
+    .right-content {
+      .book-review-list {
+        height: 100%;
+        width: 660px;
+        .data {
+          display: flex;
+          justify-content: space-between;
+          &__left, &__right {
+            width: 49%;
+            background-color: $white;
+            @include boder-enclosure;
+            &__title {
+              font-size: 16px;
+              padding: 10px;
+              background-color: $yellow;
+            }
+            &__list {
+              border-top: $gray solid 1px;
+              padding: 10px 10px 5px;
+              display: flex;
+              .title {
+                width: 50%;
+              }
+              .status {
+                width: 30%;
+                text-align: right;
+                margin-right: 10px;
+              }
+              .add_ration {
+                width: 50%;
+                text-align: center;
+              }
+              .unit {
+                text-align: right;
+                width: 20%;
+              }
+              &:last {
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+        .book-readed {
+          margin: 20px 0;
+          background-color: $white;
+          @include boder-enclosure;
+          &__title {
+            min-height: 38px;
+            display: flex;
+            border-bottom : $gray solid 1px;
+            .list {
+              width: 200px;
+            }
+            .flex {
+              width: 100%;
+              justify-content: space-between;
+              display: flex;
+              .element {
+                @include element;
+              }
+              .all {
+                display: flex;
+                text-decoration-line: none;
+                margin-right: 10px;
+                color: $yellow;
+                cursor: pointer;
+                .fas {
+                  padding: 10px 0;
+                  text-decoration-line: none;
+                }
+              }
+            }
+          }
+          &__title:hover {
+            @include hover-yellow;
+            .element {
+              background: $liteblue;
+            }
+            .all {
+              color: $black;
+              transform: translateX(5px);
+              transition: 0.3s;
+              a {
+                color: $black;
+              }
+            }
+          }
+          p {
+            padding: 10px 10px 5px;
+          }
+          &__list--zero {
+            padding: 20px;
+          }
+          &__list {
+            justify-content: space-between;
+            &__item {
+              display: inline-block;
+              height: 270px;
+              &__image {
+                padding: 20px 8px 0;
+                max-width: 160px;
+                img {
+                  max-height: 190px;
+                  width: 145px;
+                  object-fit: cover;
+                  &:hover {
+                    opacity: 0.6;
+                  }
+                }
+              }
+              &__description {
+                .book-title {
+                  max-width: 160px;
+                  height: 30px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+                .readed-day {
+                  @extend .book-title;
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+        .cancel {
+          margin: 0;
+          &__title:hover {
+            background-color: $white;
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+}

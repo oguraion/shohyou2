@@ -1,0 +1,49 @@
+.book-review__container
+  - if result.class == List
+    .reviews
+      .reviews__title
+        %p.list
+          = "「#{status(result.status)}」に登録しました"
+
+      .reviews__list
+        .reviews__list__head
+          = link_to show_books_path(result.book.id) do
+            - if result.book.image.present?
+              = image_tag "#{result.book.image}"
+            - else
+              = image_tag "book-default.png"
+    
+        .reviews__list__body
+          .head
+            .book-name
+              = result.book.name
+            .readed-day
+              %p
+                = "登録日：#{dayTime(result.created_at)}"
+              - if result.created_at != result.updated_at
+                %p
+                  = "更新日：#{dayTime(result.updated_at)}"
+
+  
+  - elsif result.class == Review
+    .reviews
+      .reviews__title
+        %p.list 「読み終わった本」に登録しました
+
+      .reviews__list
+        .reviews__list__head
+          = link_to show_books_path(result.book.id) do
+            - if result.book.image.present?
+              = image_tag "#{result.book.image}"
+            - else
+              = image_tag "book-default.png"
+    
+        .reviews__list__body
+          .head
+            .book-name--review
+              = result.book.name
+            .comment
+              = result.comment
+            .readed-day
+              %p
+                = "登録日：#{dayTime(result.created_at)}"

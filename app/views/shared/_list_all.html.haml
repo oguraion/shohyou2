@@ -1,0 +1,12 @@
+.book-readed__list__item
+  .book-readed__list__item__image
+    = link_to show_books_path(status.book.id) do
+      - if status.book.image.present?
+        = image_tag "#{status.book.image}"
+      - else
+        = image_tag "book-default.png"
+  .book-readed__list__item__description
+    %p.book-title
+      = status.book.name
+    %p.readed-day
+      = "登録日：#{dayTime(status.created_at)}"

@@ -1,0 +1,95 @@
+.book_show_container
+  .main-container
+    .book-status
+      .book-title
+        %h1
+          = @book.name
+      .second-content
+        .book-content
+          .book-content__image
+            - if @book.image.present?
+              = image_tag "#{@book.image}"
+            - else
+              = image_tag "book-default.png"
+          .book-content__details
+            .heading
+              %h1 本の詳細
+              = link_to "編集する", edit_book_path(@book.id), class: "element"
+            .list
+              .list__main 著者：
+              .list__info
+                = @book.author
+            .list
+              .list__main ページ数：
+              .list__info 
+                - if @book.page.present?
+                  = @book.page
+                  %span.unit ページ
+                - else
+                  %span.unit 登録されていません
+
+            .list
+              .list__main 登録者：
+              .list__info 
+                = @reg.count
+                %p.unit 人
+            -# TODO ジャンル機能付与後に作成
+            -# .list
+            -#   .list__main ジャンル:
+            -#   .list__info Ruby
+            - if @book.discription.present?
+              .not-flex
+                .not-flex__main 本の説明:
+                .not-flex__info
+                  = @book.discription
+        
+        .registration
+          .registration__title
+            %p.registration__title__mine この本をMYリストへ追加する
+          .list-button
+            = link_to new_show_books_review_path, class: "link link-first" do
+              %i.fas.fa-bookmark
+              %p 読んだ本に登録
+      
+          - if @lists.present?
+            = render "lists/edit"
+
+          - else
+            = render "lists/new"
+
+    .book-review
+      .book-review__reviewer
+        .lists
+          %p.list
+            この本の登録者
+            %span.element
+              = @reg.count
+
+        - if @reg .count == 0
+          .lists-none
+            %p 現在、登録者はありません。
+        - else
+          .lists-none
+            - @reg.each do |user|
+              = link_to show_profile_path(user.id), action: 'show_profile', class: "decoration-none" do
+                .list-user
+                  = image_tag "#{user.image}", class: "list-user__image"
+                  .list-user__container
+                    -# TODO 登録別の名称表記付け
+                    -# %p.list-user__container__listname
+                    %p.list-user__container__nickname
+                      = user.nickname
+
+      .book-review__container
+        .reviews
+          .reviews__title
+            %p.list
+              この本のレビュー
+              %span.element
+                = @review.count
+
+          - if @review.present?
+            = render partial: "book_review", collection: @review, as: "review"
+          - else
+            .reviews__none
+              %p 現在、この本のレビューはありません。

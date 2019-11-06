@@ -1,0 +1,23 @@
+.reviews__list
+  .reviews__list__head
+    = link_to show_profile_path(review.user_id), action: 'show_profile' do
+      = image_tag "#{review.user.image}"
+
+  .reviews__list__body
+    .head
+      .nickname
+        = review.user.nickname
+      .flex-content
+        .readed-day
+          = "読了日：#{review.day}"
+          - if review.day.blank?
+            %span 不明
+        - if review.user_id == current_user.id
+          .destroy
+            = link_to review_path(review.id), method: :DELETE do
+              %i.fas.fa-trash-alt
+    .comment
+      = review.comment
+    .time
+      %i.far.fa-clock
+      %span(datetime="#{review.created_at}")= time_ago_in_words(review.created_at) +"前"

@@ -1,0 +1,252 @@
+.book-list {
+  padding: 40px 0;
+  height: 100%;
+  width: 900px;
+  margin: 0 auto;
+  .data {
+    display: flex;
+    justify-content: space-between;
+    &__left, &__right {
+      width: 49%;
+      background-color: $white;
+      @include boder-enclosure;
+      &__title {
+        font-size: 16px;
+        padding: 10px;
+        background-color: $yellow;
+      }
+      &__list {
+        border-top: $gray solid 1px;
+        padding: 10px 10px 5px;
+        display: flex;
+        .title {
+          width: 40%;
+        }
+        .status {
+          width: 55%;
+          text-align: right;
+          margin-right: 10px;
+        }
+        .unit {
+          text-align: right;
+          width: 5%;
+        }
+        &:last {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  .title {
+    font-size: 28px;
+    padding: 20px 0;
+    p {
+      text-align: center;
+    }
+  }
+  .search {
+    display: flex;
+    .select-wrap {
+      padding-left: 74px;
+      width: 300px;
+      position: relative;
+      .sort_order {
+        background-color: $white;
+        height: 48px;
+        width: 100%;
+        font-size: 16px;
+        padding: 0 30px;
+        border: 1px solid $gray;
+        font-weight: 400;
+        line-height: 3;
+        cursor: pointer;
+        outline: 0;
+        -webkit-appearance: none;
+      }
+      .arrow {
+        font-size: 20px;
+        position: absolute;
+        top : 15px;
+        right: 18px;
+      }
+    }
+    .new-link {
+      text-decoration: none;
+      color: $black;
+      .search-ward {
+        height: 48px;
+        width: 226px;
+        background-color: $white;
+        border: 1px solid $gray;
+        font-weight: 400;
+        line-height: 3;
+        cursor: pointer;
+        outline: 0;
+        -webkit-appdearance: none;
+        text-align: center;
+        border-radius: 5px;
+        margin: 0 34px;
+        &:hover {
+          background-color: $red;
+        }
+      }
+    }
+    .search-input {
+      width: 226px;
+      height: 48px;
+      &__form {
+        outline: 0;
+        position: relative;
+        
+        cursor: pointer;
+        outline: 0;
+        text-align: center;
+        border-radius: 5px;
+        #search {
+
+          -webkit-appdearance: none;
+          border: 1px solid $gray;
+          border-radius: 5px;
+          border-right-style: none;
+          width: 100%;
+          height: 48px;
+          padding: 0 45px 0 20px;
+          &:focus {
+            @include input-focus;
+          }
+        }
+        .btn {
+          border-style: none;
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 40px;
+          height: 48px;
+          z-index: 100;
+          opacity: 0;
+          cursor: pointer;
+        }
+        &__icon {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 40px;
+          height: 48px;
+          line-height: 48px;
+          text-align: center;
+          color: $white;
+          background: rgb(102, 102, 102);
+          border-radius: 0 4px 4px 0;
+        }
+      }
+    }
+  }
+  .book-readed {
+    width: 750px;
+    margin: 20px auto;
+    background-color: $white;
+    @include boder-enclosure;
+    &__title {
+      border-bottom : $gray solid 1px;
+      cursor: pointer;
+      .list {
+        width: 200px;
+      }
+      .flex {
+        justify-content: space-between;
+        width: 100%;
+        display: flex;
+        .element {
+          border-radius: 12px;
+          display: inline-block;
+          margin: 8px 0 12px 5px;
+          padding: 3px 5px;
+          color: #fff;
+          background-color: $yellow;
+          vertical-align: top;
+          font-size: 12px;
+          font-weight: 100;
+          line-height: 11px;
+        }
+        .all {
+          margin-right: 10px;
+          color: $yellow;
+          a {
+            color: $yellow;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    &__title:hover {
+      @include hover-yellow;
+      .element {
+        background: $liteblue;
+      }
+      .all {
+        color: $black;
+        transform: translateX(5px);
+        transition: 0.3s;
+        a {
+          color: $black;
+        }
+      }
+    }
+    &__list {
+      margin: auto;
+      width: 100%;
+      padding: 30px 5px;
+      &__word {
+        padding: 20px;
+      }
+      &__result {
+        padding-left: 30px;
+        font-size: 20px;
+      }
+      &__item {
+        padding:  8px;
+        text-align: center;
+        height: 270px;
+        width: 180px;
+        display: inline-block;
+        justify-content: space-between;
+        &__image {
+          width: 170px;
+          img{
+            max-height: 180px;
+            min-width: 140px;
+            max-width: 160px;
+            object-fit: cover;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+        &__description {
+          .book-title {
+            max-width: 165px;
+            text-align: center;
+            height: 30px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 10px 10px 5px;
+          }
+          .author {
+            @extend .book-title;
+            font-size: 10px;
+            color: $liteblue;
+            cursor: pointer;
+            text-align: left;
+            padding: 10px 10px 5px;
+            &:hover {
+              opacity: 0.8;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

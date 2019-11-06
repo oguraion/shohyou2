@@ -1,0 +1,26 @@
+---
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      book: 本
+      review: レビュー
+    attributes:
+      user: 
+        nickname: ニックネーム  
+        email: メールアドレス
+        password_confirmation: パスワード（確認）
+        password: パスワード
+        first_name: 姓
+        last_name: 名
+        first_name_kana: 姓（カナ）
+        last_name_kana: 名（カナ）
+        phone_number: 電話番号
+        postal_code: 郵便番号
+      book:
+        name: 本の名称
+        author: 著者
+        page: ページ数
+        discription: 本の説明
+      review:
+        comment: レビュー

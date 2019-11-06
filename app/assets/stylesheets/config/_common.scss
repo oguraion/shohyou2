@@ -1,0 +1,58 @@
+// 全てに適用される共通CSS
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background: $main-background;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  padding-bottom: 30px;
+}
+
+@mixin input-focus {
+  outline: 0;
+  border: 1px solid $liteblue;
+}
+
+@mixin boder-enclosure {
+  border: $gray solid 1px;
+  border-radius: 5px;
+}
+
+@mixin hover-yellow {
+  background: $yellow;
+  color: $black;
+}
+
+@mixin element {
+  border-radius: 12px;
+  display: inline-block;
+  margin: 8px 0 12px 5px;
+  padding: 3px 5px;
+  color: #fff;
+  background-color: $yellow;
+  vertical-align: top;
+  font-size: 12px;
+  font-weight: 100;
+  line-height: 11px;
+}
+
+@mixin require{
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: $header-background;
+  font-size: 12px;
+  vertical-align: top;
+}

@@ -1,0 +1,20 @@
+.profile_container
+  .profile_container__title
+    %p 
+      = "#{@user.nickname}さんのプロフィール"
+
+  .main-container
+    .left-content
+      = render "show_profile_left"
+
+    .right-contents
+      %p.registration-title 登録したリスト(投稿順)
+      .book-review
+        - if @result.present?
+          = render partial: "show_profile_right", collection: @result, as: "result"
+
+        - else
+          .book-review__container
+            .reviews
+              .reviews__title.center
+                %p.list 現在、登録されている本はありません。

@@ -1,0 +1,48 @@
+.book-list
+  .title
+    %p 登録本一覧
+
+  .search
+    .select-wrap
+      %select{name: :sort_order, class: 'sort_order'}
+        %option{value: "0", name: "location.pathname"}
+          並び替え
+        %option{value: "1", name: :created_asc}
+          登録の古い
+        %option{value: "2", name: :created_desc}
+          登録の新しい
+        %option{value: "3", name: :page_asc}
+          ページの少ない
+        %option{value: "4", name: :page_desc}
+          ページの多い
+      %i.fas.fa-chevron-down.arrow
+    
+    = link_to new_book_path ,class: "new-link" do
+      .search-ward 新しく本を登録する
+
+    .search-input
+      = form_with url: books_path, method: :get, local: true, class: "search-input__form" do |form|
+        = form.text_field(:search, placeholder: "検索例: ruby プロ")
+        = form.submit("検索", class: "btn")
+        = fa_icon "search",class: "search-input__form__icon"
+
+  .book-readed
+    .book-readed__list
+      - if @search.present?
+        %p.book-readed__list__word
+          = "「#{@search}」の検索結果：#{@books.count} 件"
+      - @books.each do |book|
+        .book-readed__list__item
+          .book-readed__list__item__image
+            = link_to show_books_path(book.id) do
+              - if book.image.present?
+                = image_tag "#{book.image}"
+              - else
+                = image_tag "book-default.png"
+          .book-readed__list__item__description
+            %p.book-title
+              = book.name
+            %p.author
+              = book.author
+      - if @books.blank?
+        %p.book-readed__list__result  検索結果はありません...!

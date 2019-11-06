@@ -1,0 +1,237 @@
+.profile_container {
+  width: 100%;
+  padding: 40px 0;
+  &__title {
+    p {
+      font-size: 30px;
+      text-align: center;
+      padding-bottom: 30px;
+    }
+  }
+  .main-container {
+    width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .left-content {
+      width: 350px;
+      height: 100%;
+      border: $gray solid 1px;
+      border-radius: 5px;
+      &__icon {
+        padding: 0px;
+        text-align: center;
+        background-color: $white;
+        position: relative;
+        .form-mask {
+          display: block;
+          margin: 0 auto;
+          height: 250px;
+          padding-top: 25px;
+          img {
+            height: 200px;
+            width: 200px;
+          }
+        }
+        .hidden{
+          position: absolute;
+          top: 32px;
+          left: 74px;
+          display: block;
+          width: 200px;
+          height:200px;
+          opacity: 0;
+          margin: 0 auto;
+        }
+        p {
+          padding-bottom: 16px;
+          font-size: 10px;
+        }
+      }
+      &__profile {
+        .list {
+          background-color: $white;
+          border-top: $gray solid 1px;
+          color: $gray;
+          display: flex;
+          height: 40px;
+          &__title {
+            padding: 13px 0 10px 10px;
+            width: 35%;
+            text-align: left;
+          }
+          &__item {
+            padding: 13px 0 10px 10px;
+            text-align: left;
+            width: 65%;
+            color: $black;
+            .input-form {
+              height: 30px;
+              width: 100%;
+            }
+            .input:focus, select:focus, .input-form:focus, textarea:focus {
+              @include input-focus;
+            }
+            .textarea-default {
+              height: 100px;
+              width: 100%;
+              padding-left: 10px;
+            }
+          }
+          .non-flex {
+            display: block;
+          }
+        }
+        .select-width {
+          height: 100%;
+          &__title {
+            @extend .list__title;
+            width: 30%;
+          }
+          &__item {
+            @extend .list__item;
+            padding: 0 10px 10px;
+            width: 70%;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-align: left;
+          }
+        }
+        .title {
+          @extend .list;
+          color: $black;
+          background-color: $gray;
+          padding: 10px;
+        }
+      }
+    }
+    .book-review-list {
+        height: 100%;
+        width: 100%;
+      .data {
+        &__left, &__right {
+          background-color: $white;
+          border-top: 1px solid $liteblue;
+          &__title {
+            font-size: 16px;
+            padding: 10px;
+            background-color: $yellow;
+          }
+          &__list {
+            border-top: $gray solid 1px;
+            padding: 10px 10px 5px;
+            display: flex;
+            .title {
+              width: 40%;
+            }
+            .status {
+              width: 45%;
+              text-align: center;
+              margin-right: 10px;
+            }
+            .unit {
+              text-align: left;
+              width: 15%;
+            }
+            &:last {
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+    .registration-title {
+      font-size: 18px;
+      text-align: center;
+    }
+    .right-contents {
+      .book-review {
+        &__container {
+          height: 100%;
+          width: 660px;
+          margin: 0 auto;
+          .reviews {
+            margin: 20px 0;
+            background-color: #fff;
+            border: #aaa solid 1px;
+            border-radius: 5px;
+            &__title {
+              display: flex;
+              border-bottom: #aaa solid 1px;
+              .list {
+                padding: 10px;
+                font-size: 18px;
+                .element {
+                  @include element;
+                  margin: 0;
+                }
+              }
+            }
+            .center {
+              text-align: center;
+              line-height: 80px;
+              .list {
+                width: 100%;
+                height: 100px;
+              }
+            }
+            &__list {
+              display: flex;
+              border-bottom: #aaa solid 1px;
+              &__head {
+                min-width: 120px;
+                img {
+                  padding: 15px;
+                  max-height: 140px;
+                  max-width: 140px;
+                  object-fit: cover;
+                }
+              }
+              &__body {
+                .head {
+                  width: 540px;
+                  padding: 15px;
+                  line-height: 20px;
+                  font-size: 18px;
+                  .book-name {
+                    height: 70px;
+                  }
+                  .book-name--review {
+                    height: 100%;
+                  }
+                  .comment {
+                    font-size: 15px;
+                    line-height: 20px;
+                    padding: 0 10px;
+                    white-space: pre-wrap;
+                  }
+                  .readed-day {
+                    font-size: 12px;
+                    padding: 10px;
+                    text-align: right;
+                  }
+                }
+                .time {
+                  width: 500px;
+                  text-align: right;
+                  padding: 15px 25px;
+                }
+              }
+              &__time {
+                display: block;
+              }
+            }
+            &__list:last-child {
+              border-bottom: 0px;
+            }
+            &__none {
+              p {
+                padding: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

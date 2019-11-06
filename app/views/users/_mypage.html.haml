@@ -1,0 +1,60 @@
+= form_for(current_user, url: mypage_path(current_user), action: :patch) do |f|
+  .left-content__icon
+    %label.form-mask
+      = image_tag "#{current_user.image}"
+    = f.file_field :image, class: 'hidden'
+    %p プロフィール画像の変更は画像をクリックしてください
+
+  .left-content__profile
+    .title プロフィール
+
+    .list
+      .list__title ニックネーム：
+      .list__item
+        %label{for: "nickname"}
+        = f.text_field :nickname, class: "input-form", autocomplete: "nickname", placeholder: "例）書籍太郎"
+    .list
+      .list__title 性別：
+      .list__radio
+        .radio
+          = f.radio_button :sex, 0
+          %label{for: "sex"} 公開しない
+        %br
+        .radio
+          = f.radio_button :sex, 1
+          %label{for: "sex"} 男
+        .radio
+          = f.radio_button :sex, 2
+          %label{for: "sex"} 女
+
+    .list.pulldown
+      .pulldown__title 誕生日：
+      .pulldown__item
+        %label{for: "birthday"}
+        .select-wrap
+          = raw sprintf(f.date_select(:birthday,
+            prompt: "--",
+              use_two_digit_numbers: true,
+              start_year: Time.now.year,
+              end_year: 1900,
+              date_separator: '%s'),
+              '年 ', '月 ') + '日'
+
+    .list.pulldown
+      .pulldown__title 所在地：
+      .pulldown__item
+        %label{for: "area"}
+        .select-wrap.width
+          = f.collection_select(:area, Area.all, :id, :name)
+
+    .list.height-adjustment
+      .list__title ひとこと：
+      .list__item
+        - if current_user.introduction.present?
+          = f.text_area :introduction, class: "textarea-default", value: "#{current_user.introduction}", placeholder: "よろしくおねがいします。"
+        - else
+          = f.text_area :introduction, class: "textarea-default", value: "よろしくおねがいします", placeholder: "よろしくおねがいします。"
+          
+    .update-btn
+      .submit
+        = f.submit "変更する", class: 'submit'

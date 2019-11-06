@@ -1,0 +1,149 @@
+.header {
+  &__wrapper {
+    &__top {
+      min-height: 30px;
+      background-color: $green;
+      display: flex;
+      justify-content: space-between;
+      .menu {
+        padding: 1px;
+        border-right: 1px solid $gray;
+        justify-content: space-between;
+        list-style: none;
+        display: flex;
+        &__new, &__login, &__logout {
+        text-align: right;
+        margin: 0 0 0 auto;
+        margin: 0 5px;
+          a {
+            color: $red;
+            padding: 7px;
+            border-radius: 4px;
+            background: $white;
+            text-decoration: none;
+            line-height: 32px;
+          }
+          a:hover {
+            color: $white;
+            background: $red;
+          }
+        }
+
+        &__login{
+          a {
+            color: $liteblue;
+            padding: 7px;
+            background: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+            line-height: 32px;
+          }
+          a:hover {
+            background: $liteblue;
+            color: $white;
+          }
+        }
+      }
+    }
+    &__bottom {
+      display: flex;
+      background-color: $white;
+      border-bottom: 1px solid $gray;
+      .title {
+        width: 30%;
+        display: block;
+        font-size: 50px;
+        padding: 10px 20px;
+        .fa-book {
+          color: $darkbrown;
+        }
+        a {
+          text-decoration: none;
+          color: $darkbrown;        
+        }
+        span {
+          font-size: 35px;
+          color: $darkgray;
+        }
+      }
+      .flex {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        .left {
+          display: flex;
+        }
+        .search, .menu__new, .menu__login {
+          color: $darkbrown;
+          margin: auto 5px;
+          padding: 15px;
+          font-size: 18px;
+          border-right: 1px solid $gray;
+          border-left: 1px solid $gray;
+          text-decoration-line: none;
+          a {
+            display: flex;
+            text-decoration: none;
+            color: $black;
+            .fas {
+              padding-right: 5px;
+            }
+          }
+          &:hover {
+            background-color: $main-background;
+            background-color: $red;
+            opacity: 0.8;
+            a {
+              color: $white;
+            }
+          }
+        }
+        .search {
+          display: flex;
+          .fas {
+            padding: 8px 0;
+          }
+          p {
+            padding: 8px 0;
+            margin-left: 5px;
+          }
+        }
+        .menu {
+          margin: auto 5px;
+          &__mypage {
+            margin: 5px;
+            display: flex;
+            @extend .menu__new;
+              span {
+              font-size: 14px;
+              img {
+                height: 36px;
+                width: 36px;
+              }
+            }
+            &__item {
+              font-size: 16px;
+              .name {
+                font-size: 12px;
+              }
+              p {
+                margin-top: 5px;
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  height: 30px;
+  border-top: 1px solid $gray;
+  background-color: $green;
+  margin-top: auto;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;  
+}
