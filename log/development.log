@@ -280,3 +280,22 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 1972ms (Views: 1956.0ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/" for ::1 at 2019-11-06 20:47:23 +0900
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /Users/user/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /Users/user/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-11-06 20:47:23 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/sessions/new.html.haml within layouts/application (24.2ms)
+  Rendered layouts/_flash.html.haml (2.1ms)
+  Rendered layouts/_header.html.haml (11.1ms)
+  Rendered layouts/_footer.html.haml (2.0ms)
+Completed 200 OK in 964ms (Views: 934.0ms | ActiveRecord: 1.6ms)
+
+
